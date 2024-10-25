@@ -1,0 +1,152 @@
+/* src/styles/main.css */
+
+/* Base Tailwind imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom root variables */
+:root {
+  --primary-blue: #1E40AF;
+  --primary-green: #10B981;
+  --accent-yellow: #FCD34D;
+  --text-dark: #1F2937;
+  --text-light: #F9FAFB;
+}
+
+/* Custom base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-gray-800 bg-gray-50;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+/* Custom components */
+@layer components {
+  /* Button styles */
+  .btn-primary {
+    @apply bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold
+           hover:bg-blue-700 transition duration-300
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-white px-6 py-3 rounded-lg font-semibold
+           hover:bg-white hover:text-blue-600 transition duration-300
+           focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
+  }
+
+  /* Card styles */
+  .feature-card {
+    @apply p-6 border rounded-lg hover:shadow-lg transition duration-300
+           bg-white hover:transform hover:-translate-y-1;
+  }
+
+  /* Hero section */
+  .hero-gradient {
+    @apply bg-gradient-to-br from-blue-600 to-green-500;
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply hover:text-green-200 transition duration-200
+           relative after:absolute after:bottom-0 after:left-0
+           after:w-full after:h-0.5 after:bg-green-200
+           after:scale-x-0 hover:after:scale-x-100
+           after:transition-transform after:duration-300;
+  }
+
+  /* Form elements */
+  .input-field {
+    @apply w-full p-3 border rounded-lg bg-gray-50
+           focus:outline-none focus:ring-2 focus:ring-blue-500
+           transition duration-200;
+  }
+
+  /* Features section */
+  .feature-icon {
+    @apply h-12 w-12 text-blue-600 mb-4
+           transform transition duration-300
+           group-hover:scale-110 group-hover:text-green-500;
+  }
+
+  /* Benefits section */
+  .benefit-card {
+    @apply p-6 border rounded-lg transition duration-300
+           hover:shadow-xl hover:border-blue-500;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Animations */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-dark: #F9FAFB;
+    --text-light: #1F2937;
+  }
+
+  .feature-card {
+    @apply bg-gray-800 border-gray-700 text-gray-100;
+  }
+
+  .input-field {
+    @apply bg-gray-700 border-gray-600 text-white
+           placeholder-gray-400;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .hero-content {
+    @apply text-center;
+  }
+
+  .feature-grid {
+    @apply grid-cols-1;
+  }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
