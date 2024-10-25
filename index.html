@@ -1,0 +1,210 @@
+import React from 'react';
+import { Sun, Battery, BarChart, ArrowRight, Check, Phone, Mail, MapPin } from 'lucide-react';
+
+const SolaarLanding = () => {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <header className="bg-gradient-to-br from-blue-600 to-green-500 text-white">
+        <nav className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            <div className="text-2xl font-bold">solaar.eco</div>
+            <div className="hidden md:flex space-x-8">
+              <a href="#solutions" className="hover:text-green-200">Solutions</a>
+              <a href="#benefits" className="hover:text-green-200">Benefits</a>
+              <a href="#calculator" className="hover:text-green-200">Savings Calculator</a>
+              <a href="#contact" className="hover:text-green-200">Contact</a>
+            </div>
+          </div>
+        </nav>
+        
+        <div className="max-w-6xl mx-auto px-4 py-20">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl font-bold mb-6">
+                Power Your Future with Clean Solar Energy
+              </h1>
+              <p className="text-xl mb-8">
+                Transform your energy consumption into sustainable power generation. 
+                Join the solar revolution with solaar.eco.
+              </p>
+              <div className="flex space-x-4">
+                <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-100 transition">
+                  Calculate Savings
+                </button>
+                <button className="border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                  Learn More
+                </button>
+              </div>
+            </div>
+            <div className="hidden md:block">
+              <Sun size={300} className="animate-pulse opacity-90" />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Key Benefits Section */}
+      <section className="py-20" id="benefits">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why Choose solaar.eco?
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Sun className="h-12 w-12 text-yellow-500" />,
+                title: "Clean Energy",
+                description: "Generate your own renewable energy and reduce your carbon footprint significantly."
+              },
+              {
+                icon: <Battery className="h-12 w-12 text-green-500" />,
+                title: "Energy Independence",
+                description: "Break free from rising utility costs with your personal power generation system."
+              },
+              {
+                icon: <BarChart className="h-12 w-12 text-blue-500" />,
+                title: "Smart Investment",
+                description: "Enjoy returns of up to 20% annually with government incentives and reduced bills."
+              }
+            ].map((benefit, index) => (
+              <div key={index} className="p-6 border rounded-lg hover:shadow-lg transition">
+                <div className="mb-4">{benefit.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="bg-gray-100 py-20" id="solutions">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12">Premium Solar Solutions</h2>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              {[
+                "High-efficiency solar panels with 25-year warranty",
+                "Smart monitoring system for real-time performance tracking",
+                "Professional installation by certified experts",
+                "Customized design for maximum energy production",
+                "Battery storage solutions for 24/7 power",
+                "Zero-down financing options available"
+              ].map((feature, index) => (
+                <div key={index} className="flex items-start space-x-3">
+                  <Check className="h-6 w-6 text-green-500 flex-shrink-0" />
+                  <p className="text-gray-700">{feature}</p>
+                </div>
+              ))}
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h3 className="text-2xl font-bold mb-4">Ready to Go Solar?</h3>
+              <p className="text-gray-600 mb-6">
+                Get a free consultation and custom quote for your home or business.
+              </p>
+              <form className="space-y-4">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="w-full p-3 border rounded-lg"
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="w-full p-3 border rounded-lg"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone"
+                  className="w-full p-3 border rounded-lg"
+                />
+                <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                  Get Free Quote
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20" id="contact">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Contact Us</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Phone className="h-6 w-6" />,
+                title: "Call Us",
+                info: "+1 (888) SOLAAR-ECO"
+              },
+              {
+                icon: <Mail className="h-6 w-6" />,
+                title: "Email Us",
+                info: "hello@solaar.eco"
+              },
+              {
+                icon: <MapPin className="h-6 w-6" />,
+                title: "Visit Us",
+                info: "123 Solar Street, Green City"
+              }
+            ].map((contact, index) => (
+              <div key={index} className="text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-blue-600 mb-4">
+                  {contact.icon}
+                </div>
+                <h3 className="font-semibold mb-2">{contact.title}</h3>
+                <p className="text-gray-600">{contact.info}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">solaar.eco</h3>
+              <p className="text-gray-400">
+                Powering a sustainable future through innovative solar solutions.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Solutions</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>Residential Solar</li>
+                <li>Commercial Solar</li>
+                <li>Battery Storage</li>
+                <li>Solar Monitoring</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Company</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>About Us</li>
+                <li>Careers</li>
+                <li>Blog</li>
+                <li>Contact</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>Privacy Policy</li>
+                <li>Terms of Service</li>
+                <li>Warranty Info</li>
+                <li>Financing</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 solaar.eco. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
